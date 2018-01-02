@@ -1,5 +1,8 @@
-var express = require('express');
-var app = express();
+var configura = require('./config/express');
+var app = configura();
+
+//var express = require('express');
+//var app = express();
 
 app.set('view engine', 'ejs');
 
