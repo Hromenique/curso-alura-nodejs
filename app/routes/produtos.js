@@ -14,12 +14,10 @@ module.exports = function(app){
                 return;
             }
             
-            res.send(results);
-            //res.render("produtos/lista", {lista: results});
+            res.render("produtos/lista", {lista: results});
         });
 
         connection.end();        
-        //res.render("produtos/lista");
     });
 }
 
