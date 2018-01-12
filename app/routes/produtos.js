@@ -16,17 +16,8 @@ module.exports = function (app) {
         connection.end();
     });
 
-    /*
-    app.get('produtos/remove', () => {
-
-        var connection = app.infra.connectionFactory;
-        var produtosBanco = app.infra.produtosBanco;
-        produtosBanco.carrega(connection, id, ()=>{});
-
-        if(produto){
-            produtosBanco.remove(connection, produto, callback);
-        }
+    app.get('/produtos/form', function(req, res){
+        res.render('produtos/form');
     });
-    */
 }
 

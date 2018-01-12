@@ -1,11 +1,11 @@
-function ProdutoBanco(connection){
+function ProdutoDAO(connection){
     this._connection = connection;
 }
 
-ProdutoBanco.prototype.lista = function(callback){
+ProdutoDAO.prototype.lista = function(callback){
     this._connection.query('select * from produtos', callback);
 }
 
 module.exports = function () {
-    return ProdutoBanco;   
+    return ProdutoDAO;   
 }
