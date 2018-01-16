@@ -27,7 +27,7 @@ module.exports = function (app) {
         var produtosDAO = new app.infra.ProdutosDAO(connection);
 
         produtosDAO.salva(produto, function (erros, resultados) {
-            res.render('produtos/lista');
+            res.redirect('/produtos');
         });
 
         connection.end();
