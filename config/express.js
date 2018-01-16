@@ -1,5 +1,6 @@
 var express = require('express');
 var load = require('express-load');
+var bodyParse = require('body-parser');
 
 module.exports = function () {
     var app = express();
@@ -7,9 +8,11 @@ module.exports = function () {
     app.set('view engine', 'ejs');
     app.set('views', './app/views');
 
-    load('routes', {cwd : 'app'})
-    .then('infra')
-    .into(app);
+    app.use(bodyParse.urlencoded({ extended: true }));
+
+    load('routes', { cwd: 'app' })
+        .then('infra')
+        .into(app);
 
     return app;
 }

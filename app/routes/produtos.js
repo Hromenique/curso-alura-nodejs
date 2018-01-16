@@ -21,20 +21,16 @@ module.exports = function (app) {
     });
 
     app.post('/produtos/salva', function (req, res) {
-        console.log(req);
-        
-        var produto = req.body;
-        console.log(produto);
+        var produto = req.body;       
 
-        /*
         var connection = app.infra.connectionFactory();
-        var produtosDAO = new app.infra.ProdutosDAO(connectionFactory);
+        var produtosDAO = new app.infra.ProdutosDAO(connection);
 
         produtosDAO.salva(produto, function (erros, resultados) {
             res.render('produtos/lista');
         });
-        */
 
+        connection.end();
     });
 }
 
