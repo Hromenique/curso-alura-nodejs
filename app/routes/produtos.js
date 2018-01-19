@@ -10,7 +10,10 @@ module.exports = function (app) {
                 return;
             }
 
-            res.render("produtos/lista", { lista: resultados });
+            res.format({
+                html: () => res.render('produtos/lista', { lista: resultados }),
+                json: () => res.json(resultados)
+            });
         });
 
         connection.end();
