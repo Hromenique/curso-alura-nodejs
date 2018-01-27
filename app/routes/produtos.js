@@ -28,13 +28,13 @@ module.exports = function (app) {
         
         req.assert('titulo', 'Titulo é obrigatorio').notEmpty();
         req.assert('preco', 'Formato inválido').isFloat();
-
         var erros = req.validationErrors();
 
         if(erros){
-            console.log(erros);
-
-            res.render('produtos/form', {errosValidacao: erros, produto:produto});
+            res.format({
+                html: () => res.status(400).render('produtos/form', {errosValidacao: erros, produto:produto}),
+                json: () => res.status(400).json(erros)
+            });
             
             return;
         }
